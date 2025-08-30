@@ -1,7 +1,5 @@
-// import { NextResponse } from 'next/server';
+import { NextRequest } from "next/server";
 
-export async function GET(request: string) {
-  console.log(request);
+export async function GET(request: NextRequest) {
   return new Response("Hallelujah! I'm a fullstack!");
-  // return NextResponse.json({message: "Hallelujah! I'm a fullstack!"});
 }
