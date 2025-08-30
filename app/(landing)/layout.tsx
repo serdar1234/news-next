@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
-import "./globals.scss";
-import MainHeader from "@/components/main-header";
+import "../globals.scss";
 
 export const metadata = {
   title: "Next.js Page Routing & Rendering",
@@ -10,12 +9,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body>
-        <div id="page">
-          <MainHeader />
-          {children}
-        </div>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
