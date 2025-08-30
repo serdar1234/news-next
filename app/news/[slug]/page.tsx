@@ -3,6 +3,7 @@
 import { Usable, use } from "react";
 import { DUMMY_NEWS } from "@/dummy-news";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 
 export default function NewsDetailPage({
   params,
@@ -19,10 +20,12 @@ export default function NewsDetailPage({
   return (
     <article className="news-article">
       <header>
-        <img
-          src={`/images/news/${newsArticle.image}`}
-          alt={newsArticle.title}
-        />
+        <Link href={`/news/${newsArticle.slug}/image`}>
+          <img
+            src={`/images/news/${newsArticle.image}`}
+            alt={newsArticle.title}
+          />
+        </Link>
         <h1>{newsArticle?.title}</h1>
         <time dateTime={newsArticle.date}>{newsArticle.date}</time>
       </header>
