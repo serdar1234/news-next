@@ -5,9 +5,18 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
+    "format": "prettier --write \"{app,components}/**/*.{ts,tsx,scss,json}\"",
     "start": "next start",
     "lint": "eslint",
-    "lint:fix": "eslint --fix"
+    "lint:fix": "eslint --fix",
+    "lint-staged": "lint-staged",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "{app,components}/**/*.{ts,tsx,scss}": [
+      "npm run lint:fix",
+      "npm run format"
+    ]
   },
   "dependencies": {
     "next": "15.5.2",
@@ -21,6 +30,8 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.5.2",
+    "husky": "^9.1.7",
+    "prettier": "^3.6.2",
     "sass": "^1.91.0",
     "typescript": "^5"
   }
