@@ -1,17 +1,14 @@
-"use client";
-
-import { Usable, use } from "react";
-import { DUMMY_NEWS } from "@/dummy-news";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { getNewsItem } from "@/lib/news";
 
-export default function NewsDetailPage({
+export default async function NewsDetailPage({
   params,
 }: {
-  params: Usable<{ slug: string }>;
+  params: { slug: string };
 }) {
-  const { slug } = use(params);
-  const newsArticle = DUMMY_NEWS.find((news) => news.slug === slug);
+  const slug = params.slug;
+  const newsArticle = await getNewsItem(slug);
 
   if (!newsArticle) {
     notFound();
