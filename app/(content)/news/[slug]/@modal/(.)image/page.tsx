@@ -7,7 +7,7 @@ export default async function InterceptedImagePage({
 }: {
   params: { slug: string };
 }) {
-  const { slug } = params;
+  const { slug } = await params;
   const newsItem = await getNewsItem(slug);
 
   if (!newsItem) {

@@ -7,7 +7,7 @@ export default async function NewsDetailPage({
 }: {
   params: { slug: string };
 }) {
-  const slug = params.slug;
+  const slug = await params.slug;
   const newsArticle = await getNewsItem(slug);
 
   if (!newsArticle) {
